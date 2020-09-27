@@ -1,0 +1,40 @@
+*{padding:0; margin:0;}
+
+html, body{
+    box-sizing: border-box;
+}
+.display {
+    width: 240px;
+    height: 441px;
+    border: 1px solid rgb(22, 223, 22);
+    margin: 30px auto;
+    background-color: #1abae2;
+
+}
+
+#display {
+    box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+    border-width: 0px 0px 1px 0px;
+    border-color: lightgrey;
+    font-size: 30px;
+    line-height: 80px;
+    text-align: right;
+    font-weight: bold;
+    background-color: #1abae2;
+    padding: 0px 10px 0px 10px;
+}
+
+.button {
+    border: outset;
+    width: 80px;
+    height: 60px;
+    background-color: #93d41a;
+    float: left;
+}
+
+.button:hover {
+    background-color: #c2134e;
+}
+
