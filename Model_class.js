@@ -13,25 +13,35 @@ export default class Model{
         this.operator='';
         this.result='';
         this.isoperator=false;
+        this.isdot=true;
     }   
     setnumber(pnumber){
         if(this.operator===''){
             this.no1=this.result+pnumber;
         }
         else{
-            this.no2=this.result+pnumber;
+            this.no2=this.result.toString()+pnumber;
+            
         }
+        // console.log(this.result)
         this.result=this.result+pnumber;
     }
+
     setoperator(temp){
         if(this.isoperator){
             if(this.result.toString().slice(-1)==='+' || this.result.toString().slice(-1)==='/' || this.result.toString().slice(-1)==='*' || this.result.toString().slice(-1)==='-' || this.result.toString().slice(-1)==='.'){
 
             }
             else{
-                 this.result=this.result+operations[temp]
+                // this.result=eval(this.result)
+                // this.no1=this.result
+                // this.isoperator=false
+                console.log('test34')
+                this.result=this.result+operations[temp]
                 this.no1=this.no2
                 this.no2=''
+                this.isdot=true
+                console.log('test35')
             }
         }
         if(this.no1==='' && this.no2===''){
@@ -39,11 +49,15 @@ export default class Model{
             this.operator=temp;
             this.result="0"+operations[temp]
             this.isoperator=true
+            this.isdot=true
+            console.log('up')
         }
         else if(!this.isoperator){
             this.operator=temp;
-            this.result=this.no1+operations[temp]
+            this.result=this.result+operations[temp]
             this.isoperator=true
+            this.isdot=true
+            console.log('here')
             
         }
 
@@ -58,22 +72,31 @@ export default class Model{
     }
 
     dotcalculate(){
-        if(!this.result.toString().includes('.') || this.isoperator===true){
+        if( this.isdot===true){
             this.result=this.result+"." ;
+            this.isdot=false
         }
     }
     
     calculate(){
-        if(this.result.slice(-1)==='+' || this.result.slice(-1)==='-' || this.result.slice(-1)==='*' || this.result.slice(-1)==='/' || this.result.slice(-1)==='.' ){
-            this.result=eval(this.result.slice(0,-1))
-            this.isoperator=false
-            this.no1=this.result
+        // if(this.result.slice(-1)==='+' || this.result.slice(-1)==='-' || this.result.slice(-1)==='*' || this.result.slice(-1)==='/' || this.result.slice(-1)==='.' ){
+        //     this.result=eval(this.result.slice(0,-1))
+        //     this.isoperator=false
+        //     this.no1=this.result
+        // }
+        // else{
+        //     this.result=eval(this.result)
+        //     this.isoperator=false
+        //     this.no1=this.result
+        // }
+        while(this.result.slice(-1)==='+' || this.result.slice(-1)==='-' || this.result.slice(-1)==='*' || this.result.slice(-1)==='/' || this.result.slice(-1)==='.'){
+            this.result=this.result.slice(0,-1)
         }
-        else{
             this.result=eval(this.result)
+            this.result=this.result.toString()
             this.isoperator=false
             this.no1=this.result
-        }
+        
     }
     
     backspaceit(){
