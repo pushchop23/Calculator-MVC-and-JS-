@@ -98,6 +98,13 @@ export default class Model{
             this.isoperator=false
             this.no1=this.result
             
+            if(this.result.includes('.')){
+                this.isdot=false;
+            }
+            else{
+                this.isdot=true
+            }
+            
         
     }
     
