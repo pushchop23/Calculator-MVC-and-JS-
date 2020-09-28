@@ -29,9 +29,9 @@ export default class Model{
 
             }
             else{
-                this.result=eval(this.result)
-                this.no1=this.result
-                this.isoperator=false
+                 this.result=this.result+operations[temp]
+                this.no1=this.no2
+                this.no2=''
             }
         }
         if(this.no1==='' && this.no2===''){
