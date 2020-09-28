@@ -69,6 +69,7 @@ export default class Model{
         this.operator='';
         this.result='';
         this.isoperator=false;
+        this.isdot=true
     }
 
     dotcalculate(){
@@ -96,6 +97,7 @@ export default class Model{
             this.result=this.result.toString()
             this.isoperator=false
             this.no1=this.result
+            
         
     }
     
